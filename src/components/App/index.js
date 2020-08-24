@@ -9,12 +9,12 @@ import recipes from 'src/data';
 
 const App = () => (
   <div>
-    <Nav />
+    <Nav recipes={recipes} />
     {/* <Page>
       <Home />
     </Page> */}
     <Page>
-      <Recipe recipe={recipes[0]} />
+      <Recipe recipe={recipes[1]} />
     </Page>
 
   </div>
