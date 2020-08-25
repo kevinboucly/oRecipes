@@ -62,3 +62,47 @@
 			"export default $1;",
 			"",
 		],
+	},
+	"reducer": {
+		"scope": "javascript",
+		"prefix": "reducer",
+		"description": "create a simple reducer",
+		"body": [
+			"import {} from 'src/actions';",
+			"",
+			"const initialState = {",
+			"",
+			"};",
+			"",
+			"const reducer = (state = initialState, action = {}) => {",
+			"	switch (action.type) {",
+			"		default:",
+			"			return state;",
+			"	}",
+			"};",
+			"",
+			"export default reducer;",
+			"",
+		]
+	},
+	"container": {
+		"scope": "javascript",
+		"prefix": "container",
+		"body": [
+			"import { connect } from 'react-redux';",
+			"",
+			"import $1 from 'src/components/$1';",
+			"",
+			"const mapStateToProps = (state) => ({",
+			"});",
+			"const mapDispatchToProps = (dispatch) => ({",
+			"});",
+			"",
+			"export default connect(",
+			"	mapStateToProps,",
+			"	mapDispatchToProps,",
+			")($1);",
+			"", 
+		]
+	}
+}
