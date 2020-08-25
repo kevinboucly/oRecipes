@@ -8,7 +8,7 @@ const mapStateToProps = null;
 const mapDispatchToProps = (dispatch) => ({
   fetchRecipes: () => {
     console.log('je veux les recettes');
-    dispatch(fetchRecipes);
+    dispatch(fetchRecipes());
   },
 });
 

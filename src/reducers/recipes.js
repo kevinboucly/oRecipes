@@ -1,4 +1,4 @@
-import {} from 'src/actions';
+import { SAVE_RECIPES } from 'src/actions/recipes';
 
 const initialState = {
   list: [],
@@ -6,6 +6,11 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_RECIPES:
+      return {
+        ...state,
+        list: action.recipes,
+      };
     default:
       return state;
   }

@@ -6,7 +6,7 @@ import './style.scss';
 
 const Nav = ({ recipes }) => (
   <nav className="menu">
-    {console.log(recipes)}
+    {/* {console.log(recipes)} */}
     <NavLink to="/" className="menu-link" activeClassName="menu-link--current">Accueil</NavLink>
     {recipes.map((recipe) => (
       <NavLink
