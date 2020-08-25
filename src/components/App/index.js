@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 
 import Nav from 'src/containers/Nav';
 import Page from 'src/components/Page';
-import Recipe from 'src/components/Recipe';
+import Recipe from 'src/containers/Recipe';
 import Home from 'src/components/Home';
-
-import recipes from 'src/data';
 
 const App = ({ fetchRecipes }) => {
   useEffect(fetchRecipes, []);
@@ -19,9 +17,9 @@ const App = ({ fetchRecipes }) => {
           <Home />
         </Page>
       </Route>
-      <Route path="/recipe" exact>
+      <Route path="/recipe/:slug" exact>
         <Page>
-          <Recipe recipe={recipes[1]} />
+          <Recipe />
         </Page>
       </Route>
 
