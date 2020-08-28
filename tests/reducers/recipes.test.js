@@ -3,7 +3,6 @@ import { should } from 'chai';
 import recipesReducer, { initialState } from 'src/reducers/recipes';
 import { saveRecipes } from 'src/actions/recipes';
 
-
 should();
 
 describe.only('reducer for recipes', () => {
