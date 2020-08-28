@@ -10,7 +10,7 @@ import Home from 'src/components/Home';
 const App = ({ fetchRecipes }) => {
   useEffect(fetchRecipes, []);
   return (
-    <div>
+    <div className="test">
       <Nav />
       <Route path="/" exact>
         <Page>

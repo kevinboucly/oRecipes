@@ -5,7 +5,7 @@ import { saveRecipes } from 'src/actions/recipes';
 
 should();
 
-describe.only('reducer for recipes', () => {
+describe('reducer for recipes', () => {
   describe('structure', () => {
     it('should be a function', () => {
       recipesReducer.should.be.a('function');
