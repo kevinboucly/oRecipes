@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_RECIPES, saveRecipes } from 'src/actions/recipes';
+import { FETCH_RECIPES, saveRecipes,getError } from 'src/actions/recipes';
 
 const api = (store) => (next) => (action) => {
   switch (action.type) {
@@ -13,6 +13,7 @@ const api = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.error(error);
+          store.dispatch(getError());
         });
       break;
     default:

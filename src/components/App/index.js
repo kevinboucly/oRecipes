@@ -9,25 +9,30 @@ import Home from 'src/components/Home';
 
 import './style.scss';
 
-const App = ({ fetchRecipes, loading }) => {
+const App = ({ fetchRecipes, loading, error }) => {
   // console.log(loading);
   useEffect(fetchRecipes, []);
   return (
     <div className="test">
       <Nav />
-      {!loading && (
-        <>
-          <Route path="/" exact>
-            <Page>
-              <Home />
-            </Page>
-          </Route>
-          <Route path="/recipe/:slug" exact>
-            <Page>
-              <Recipe />
-            </Page>
-          </Route>
-        </>
+      {!loading && error && (
+        <Page>
+          <p className="error">Une erreur s'est produite</p>
+        </Page>
+      )}
+      {!loading && !error && (
+      <>
+        <Route path="/" exact>
+          <Page>
+            <Home />
+          </Page>
+        </Route>
+        <Route path="/recipe/:slug" exact>
+          <Page>
+            <Recipe />
+          </Page>
+        </Route>
+      </>
       )}
       {loading && (
         <Page>
@@ -42,5 +47,6 @@ const App = ({ fetchRecipes, loading }) => {
 App.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 export default App;
