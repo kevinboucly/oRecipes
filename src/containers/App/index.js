@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 import { fetchRecipes } from 'src/actions/recipes';
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  loading: state.recipes.loading,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchRecipes: () => {
