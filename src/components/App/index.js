@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Nav from 'src/containers/Nav';
@@ -10,8 +10,14 @@ import Home from 'src/components/Home';
 import './style.scss';
 
 const App = ({ fetchRecipes, loading, error }) => {
+  const location = useLocation();
   // console.log(loading);
   useEffect(fetchRecipes, []);
+  useEffect(() => {
+    console.log('lacation a changé', location);
+    console.log('un rendu a eu lieu');
+    window.scrollTo(0, 0);
+  }, [location]);
   return (
     <div className="test">
       <Nav />
