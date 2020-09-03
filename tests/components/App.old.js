@@ -14,7 +14,7 @@ import Nav from 'src/containers/Nav';
 // préparation de should
 should();
 
-describe.only ('Série de tests : App', () => {
+describe('Série de tests : App', () => {
   const comp = shallow(<App title="hello" />);
   it('should have prop className', () => {
     comp.props().should.have.property('className');

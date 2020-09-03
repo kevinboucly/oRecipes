@@ -17,9 +17,15 @@
   animation: slideIn 1s 1 cubic-bezier(.49,1.34,.63,1.23);
 
   &-title {
-    font-size: 1.5em;
-    padding: $gutter;
     font-weight: bold;
     background-color: $grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+    font-size: 1.5em;
+    padding: $gutter;
+    }
   }
 }

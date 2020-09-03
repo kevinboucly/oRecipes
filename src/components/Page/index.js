@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
+import LoginForm from 'src/containers/LoginForm';
+
 const Page = ({ children }) => (
   <main className="page">
-    <h1 className="page-title">oRecipe</h1>
+    <div className="page-title">
+      <h1> oRecipes</h1>
+      <LoginForm />
+    </div>
     {children}
   </main>
 );
