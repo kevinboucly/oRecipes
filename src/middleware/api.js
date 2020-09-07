@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FETCH_RECIPES, saveRecipes, getError } from 'src/actions/recipes';
 import {
   LOGIN, finishLoading, connect,
-  CHECK,
+  CHECK, LOGOUT,
 } from 'src/actions/user';
 
 const api = (store) => (next) => (action) => {
@@ -45,10 +45,16 @@ const api = (store) => (next) => (action) => {
         withCredentials: true,
       })
         .then((response) => {
-          if (response.data.logged) {
+          if (response.data.logged) {  
             store.dispatch(connect());
           }
         });
+      break;
+    case LOGOUT:
+      axios.post('http://localhost:3001/logout', {}, {
+        withCredentials: true,
+      });
+      next(action);
       break;
 
     default:
