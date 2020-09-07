@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { FETCH_RECIPES, saveRecipes,getError } from 'src/actions/recipes';
+import { FETCH_RECIPES, saveRecipes, getError } from 'src/actions/recipes';
+import { LOGIN, finishLoading, connect } from 'src/actions/user';
 
 const api = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,6 +17,24 @@ const api = (store) => (next) => (action) => {
           store.dispatch(getError());
         });
       break;
+    case LOGIN: {
+      const state = store.getState();
+      console.log('state', state);
+      axios.post('http://localhost:3001/login', {
+        email: state.user.email,
+        password: state.user.password,
+      })
+        .then((response) => {
+          store.dispatch(connect());
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          store.dispatch(finishLoading());
+        });
+      next(action);
+      break; }
     default:
       next(action);
   }

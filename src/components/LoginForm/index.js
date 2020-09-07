@@ -14,6 +14,7 @@ const LoginForm = ({
   handleLogout,
   isLogged,
   loggedMessage,
+  loading,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -22,7 +23,7 @@ const LoginForm = ({
 
   return (
     <div className="login-form">
-      {isLogged && (
+      {isLogged && !loading && (
         <div className="login-form-logged">
           <p className="login-form-message">
             {loggedMessage}
@@ -36,7 +37,7 @@ const LoginForm = ({
           </button>
         </div>
       )}
-      {!isLogged && (
+      {!isLogged && !loading && (
 
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
           <Field
@@ -60,6 +61,9 @@ const LoginForm = ({
           </button>
         </form>
       )}
+      {loading && (
+        <p>Veuillez patienter</p>
+      )}
     </div>
   );
 };
@@ -72,11 +76,13 @@ LoginForm.propTypes = {
   handleLogout: PropTypes.func.isRequired,
   isLogged: PropTypes.bool,
   loggedMessage: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 LoginForm.defaultProps = {
   isLogged: false,
   loggedMessage: 'Connecté',
+  loading: false,
 };
 
 export default LoginForm;
