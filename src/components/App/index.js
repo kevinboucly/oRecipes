@@ -9,10 +9,11 @@ import Home from 'src/components/Home';
 
 import './style.scss';
 
-const App = ({ fetchRecipes, loading, error }) => {
+const App = ({ fetchRecipes, loading, error, checkIsLogged }) => {
   const location = useLocation();
   // console.log(loading);
   useEffect(fetchRecipes, []);
+  useEffect(checkIsLogged, []);
   useEffect(() => {
     console.log('lacation a changé', location);
     console.log('un rendu a eu lieu');
@@ -54,5 +55,6 @@ App.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
+  checkIsLogged: PropTypes.func.isRequired,
 };
 export default App;

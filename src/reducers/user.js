@@ -1,6 +1,6 @@
 // import {} from 'src/actions';
 import {
-  CHANGE_VALUE, LOGIN, FINISH_LOADING, CONNECT,
+  CHANGE_VALUE, LOGIN, FINISH_LOADING, CONNECT, LOGOUT,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -31,6 +31,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        logged: false,
+        email: '',
+        password: '',
+
       };
     default:
       return state;
